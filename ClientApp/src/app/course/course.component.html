@@ -1,0 +1,55 @@
+<h1 id="tableLabel">Courses</h1>
+
+<p *ngIf="!courses"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="courses">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Category</th>
+      <!--<th>Resource</th>
+      <th>PreSchool</th>
+      <th>Elementary</th>
+      <th>Middle School</th>
+      <th>High School</th>
+      <th>Higher Education</th>-->
+      <th>Web Site</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of courses">
+      <td>{{ c.type }}</td>
+      <td>{{ c.name }}</td>
+      <td>{{ c.category }}</td>
+      <!--<td>{{ c.resource }}</td>
+      <td>{{ c.preSchool }}</td>
+      <td>{{ c.elementary }}</td>
+      <td>{{ c.middleSchool }}</td>
+      <td>{{ c.highSchool }}</td>
+      <td>{{ c.higherEducation }}</td>-->
+      <td>{{ c.webSite }}</td>
+    </tr>
+  </tbody>
+</table>
+<!--Type
+<input [(ngModel)]="newCourse.Type" name="Type" />
+Name
+<input [(ngModel)]="newCourse.Name" name="Name" />
+Category
+<input [(ngModel)]="newCourse.Name" name="Category" />-->
+<!--Resource
+<input [(ngModel)]="newCourse.Name" name="Resource" />
+PreSchool
+<input [(ngModel)]="newCourse.Name" name="PreSchool" />
+Elementary
+<input [(ngModel)]="newCourse.Name" name="Elementary" />
+Middle School
+<input [(ngModel)]="newCourse.Name" name="MiddleSchool" />
+High School
+<input [(ngModel)]="newCourse.Name" name="HighSchool" />
+Higher Education
+<input [(ngModel)]="newCourse.Name" name="HigherEducation" />-->
+<!--Web Site
+<input [(ngModel)]="newCourse.Name" name="WebSite" />-->
+<!--<button (click)="save()">Save</button>-->
