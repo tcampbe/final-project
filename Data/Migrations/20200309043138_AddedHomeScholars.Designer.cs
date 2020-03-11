@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using capstone.Data;
 
 namespace capstone.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200309043138_AddedHomeScholars")]
+    partial class AddedHomeScholars
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1397,6 +1399,43 @@ namespace capstone.Data.Migrations
                             Name = "Sarah Brooks",
                             Science = "Academic Earth Chemistry",
                             SocialStudies = "edX Introduction to American Government"
+                        });
+                });
+
+            modelBuilder.Entity("capstone.Models.Student", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Students");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FirstName = "Jon",
+                            LastName = "Smith"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            FirstName = "Bobby",
+                            LastName = "Miller"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            FirstName = "Sarah",
+                            LastName = "Brooks"
                         });
                 });
 

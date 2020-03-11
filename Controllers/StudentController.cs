@@ -21,7 +21,7 @@ namespace capstone.Controllers
             Student[] students = null;
             using (var context = new ApplicationDbContext())
             {
-                students =  context.Students.ToArray();
+                //students =  context.Students.ToArray();
             }
             return students;
             

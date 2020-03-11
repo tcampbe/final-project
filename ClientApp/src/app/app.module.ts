@@ -1,20 +1,21 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { RouterModule } from "@angular/router";
 
-import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { StudentsComponent } from './students/students.component';
-import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
-import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
-import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
-import { TeacherComponent } from './teacher/teacher.component';
-import { CourseComponent } from './course/course.component';
+import { AppComponent } from "./app.component";
+import { NavMenuComponent } from "./nav-menu/nav-menu.component";
+import { HomeComponent } from "./home/home.component";
+import { CounterComponent } from "./counter/counter.component";
+import { FetchDataComponent } from "./fetch-data/fetch-data.component";
+import { StudentsComponent } from "./students/students.component";
+import { ApiAuthorizationModule } from "src/api-authorization/api-authorization.module";
+import { AuthorizeGuard } from "src/api-authorization/authorize.guard";
+import { AuthorizeInterceptor } from "src/api-authorization/authorize.interceptor";
+import { TeacherComponent } from "./teacher/teacher.component";
+import { CourseComponent } from "./course/course.component";
+import { HomeScholarComponent } from "./home-scholar/home-scholar.component";
 
 @NgModule({
   declarations: [
@@ -25,20 +26,42 @@ import { CourseComponent } from './course/course.component';
     FetchDataComponent,
     StudentsComponent,
     TeacherComponent,
-    CourseComponent
+    CourseComponent,
+    HomeScholarComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    BrowserModule.withServerTransition({ appId: "ng-cli-universal" }),
     HttpClientModule,
     FormsModule,
     ApiAuthorizationModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-        { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
-        { path: 'students', component: StudentsComponent, canActivate: [AuthorizeGuard] },
-      { path: 'teachers', component: TeacherComponent, canActivate: [AuthorizeGuard] },
-      { path: 'courses', component: CourseComponent, canActivate: [AuthorizeGuard] },
+      { path: "", component: HomeComponent, pathMatch: "full" },
+      { path: "counter", component: CounterComponent },
+      {
+        path: "fetch-data",
+        component: FetchDataComponent,
+        canActivate: [AuthorizeGuard]
+      },
+      {
+        path: "students",
+        component: StudentsComponent,
+        canActivate: [AuthorizeGuard]
+      },
+      {
+        path: "teachers",
+        component: TeacherComponent,
+        canActivate: [AuthorizeGuard]
+      },
+      {
+        path: "courses",
+        component: CourseComponent,
+        canActivate: [AuthorizeGuard]
+      },
+      {
+        path: "homeScholars",
+        component: HomeScholarComponent,
+        canActivate: [AuthorizeGuard]
+      }
     ])
   ],
   providers: [
@@ -46,4 +69,4 @@ import { CourseComponent } from './course/course.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
