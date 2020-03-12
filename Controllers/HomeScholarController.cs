@@ -22,7 +22,7 @@ namespace capstone.Controllers
             HomeScholar[] homeScholars = null;
             using (var context = new ApplicationDbContext())
             {
-                homeScholars = context.HomeScholars.ToArray();
+                //homeScholars = context.HomeScholars.ToArray();
             }
             return homeScholars;
 
@@ -33,7 +33,7 @@ namespace capstone.Controllers
         {
             using (var context = new ApplicationDbContext())
             {
-                context.HomeScholars.Add(homeScholar);
+                //context.HomeScholars.Add(homeScholar);
                 context.SaveChanges();
             }
             return homeScholar;

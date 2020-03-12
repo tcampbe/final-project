@@ -15,7 +15,6 @@ import { AuthorizeGuard } from "src/api-authorization/authorize.guard";
 import { AuthorizeInterceptor } from "src/api-authorization/authorize.interceptor";
 import { TeacherComponent } from "./teacher/teacher.component";
 import { CourseComponent } from "./course/course.component";
-import { HomeScholarComponent } from "./home-scholar/home-scholar.component";
 
 @NgModule({
   declarations: [
@@ -26,8 +25,7 @@ import { HomeScholarComponent } from "./home-scholar/home-scholar.component";
     FetchDataComponent,
     StudentsComponent,
     TeacherComponent,
-    CourseComponent,
-    HomeScholarComponent
+    CourseComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "ng-cli-universal" }),
@@ -55,11 +53,6 @@ import { HomeScholarComponent } from "./home-scholar/home-scholar.component";
       {
         path: "courses",
         component: CourseComponent,
-        canActivate: [AuthorizeGuard]
-      },
-      {
-        path: "homeScholars",
-        component: HomeScholarComponent,
         canActivate: [AuthorizeGuard]
       }
     ])
