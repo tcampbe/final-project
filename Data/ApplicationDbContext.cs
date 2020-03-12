@@ -18,7 +18,6 @@ namespace capstone.Data
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Course> Courses { get; set; }
-        //public DbSet<HomeScholar> HomeScholars { get; set; }
 
 
         public ApplicationDbContext(
@@ -39,10 +38,6 @@ namespace capstone.Data
                 new Student { Id = 1, Name = "Jon S", English = "Old Fashioned Education Fairy tales", Math = "Old Fashioned Education Arithmetic", Science = "Old Fashioned Education Science & Nature", SocialStudies = "Old Fashioned Education Geography " },
                 new Student { Id = 2, Name = "Bobby M", English = "Khan Academy Grammar", Math = "Alison Core Math Skills", Science = "Khan Academy Biology", SocialStudies = "Hilsdale College Free Courses" },
                 new Student { Id = 3, Name = "Sarah B", English = "Coursera English Composition I", Math = "Udemy Geometry", Science = "Academic Earth Chemistry", SocialStudies = "edX Introduction to American Government" }
-
-                //new Student { Id = 1, FirstName = "Jon", LastName = "Smith" },
-                //new Student { Id = 2, FirstName = "Bobby", LastName = "Miller" },
-                //new Student { Id = 3, FirstName = "Sarah", LastName = "Brooks" }
                 );
 
             modelBuilder.Entity<Teacher>().HasData(
@@ -125,13 +120,6 @@ namespace capstone.Data
                 new Course { Id = 63, Type = "booksbooks", Name = "Apologia", Category = "socialstudies", Resource = true, PreSchool = false, Elementary = false, MiddleSchool = false, HighSchool = false, HigherEducation = false, WebSite = "https://www.apologia.com/" },
                 new Course { Id = 64, Type = "booksbooks", Name = "BeautifulFeetBooks", Category = "socialstudies", Resource = true, PreSchool = false, Elementary = false, MiddleSchool = false, HighSchool = false, HigherEducation = false, WebSite = "http://www.bfbooks.com/" }
             );
-
-            //modelBuilder.Entity<HomeScholar>().HasData(
-            //    new HomeScholar { Id = 1, Name = "Jon Smith", English = "Old Fashioned Education Fairy tales", Math = "Old Fashioned Education Arithmetic", Science = "Old Fashioned Education Science & Nature", SocialStudies = "Old Fashioned Education Geography " },
-            //    new HomeScholar { Id = 2, Name = "Bobby Miller", English = "Khan Academy Grammar", Math = "Alison Core Math Skills", Science = "Khan Academy Biology", SocialStudies = "Hilsdale College Free Courses" },
-            //    new HomeScholar { Id = 3, Name = "Sarah Brooks", English = "Coursera English Composition I", Math = "Udemy Geometry", Science = "Academic Earth Chemistry", SocialStudies = "edX Introduction to American Government" }
-            //);
-
         }
     }
 }
