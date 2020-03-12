@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-
 namespace capstone.Models
 {
     public class HomeScholar
@@ -18,6 +17,5 @@ namespace capstone.Models
         public string Math { get; set; }
         public string Science { get; set; }
         public string SocialStudies { get; set; }
-
     }
 }

@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using capstone.Data;
 
 namespace capstone.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200312035926_DropStudentAgain")]
+    partial class DropStudentAgain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1395,61 +1397,6 @@ namespace capstone.Data.Migrations
                             English = "Coursera English Composition I",
                             Math = "Udemy Geometry",
                             Name = "Sarah Brooks",
-                            Science = "Academic Earth Chemistry",
-                            SocialStudies = "edX Introduction to American Government"
-                        });
-                });
-
-            modelBuilder.Entity("capstone.Models.Student", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("English")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Math")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Science")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SocialStudies")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Students");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            English = "Old Fashioned Education Fairy tales",
-                            Math = "Old Fashioned Education Arithmetic",
-                            Name = "Jon S",
-                            Science = "Old Fashioned Education Science & Nature",
-                            SocialStudies = "Old Fashioned Education Geography "
-                        },
-                        new
-                        {
-                            Id = 2,
-                            English = "Khan Academy Grammar",
-                            Math = "Alison Core Math Skills",
-                            Name = "Bobby M",
-                            Science = "Khan Academy Biology",
-                            SocialStudies = "Hilsdale College Free Courses"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            English = "Coursera English Composition I",
-                            Math = "Udemy Geometry",
-                            Name = "Sarah B",
                             Science = "Academic Earth Chemistry",
                             SocialStudies = "edX Introduction to American Government"
                         });

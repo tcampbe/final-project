@@ -13,6 +13,7 @@ namespace capstone.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]")]
+
     public class StudentController : ControllerBase
     {
         [HttpGet]
@@ -21,10 +22,21 @@ namespace capstone.Controllers
             Student[] students = null;
             using (var context = new ApplicationDbContext())
             {
-                //students =  context.Students.ToArray();
+                students = context.Students.ToArray();
             }
             return students;
-            
+
+        }
+
+        [HttpPost]
+        public Student Post([FromBody]Student student)
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                context.Students.Add(student);
+                context.SaveChanges();
+            }
+            return student;
         }
     }
 }

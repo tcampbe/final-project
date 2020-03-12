@@ -12,7 +12,10 @@ namespace capstone.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string Name { get; set; }
+        public string English { get; set; }
+        public string Math { get; set; }
+        public string Science { get; set; }
+        public string SocialStudies { get; set; }
     }
 }

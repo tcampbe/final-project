@@ -2,21 +2,36 @@
 
 <p *ngIf="!students"><em>Loading...</em></p>
 
-<table
-  class="table table-striped"
-  aria-labelledby="tableLabel"
-  *ngIf="students"
->
+<table class="table table-striped"
+       aria-labelledby="tableLabel"
+       *ngIf="students">
   <thead>
     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
+      <th>Name</th>
+      <th>English</th>
+      <th>Math</th>
+      <th>Science</th>
+      <th>Social Studies</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let s of students">
-      <td>{{ s.firstName }}</td>
-      <td>{{ s.lastName }}</td>
+      <td>{{ s.name }}</td>
+      <td>{{ s.english }}</td>
+      <td>{{ s.math }}</td>
+      <td>{{ s.science }}</td>
+      <td>{{ s.socialStudies }}</td>
     </tr>
   </tbody>
 </table>
+Name
+<input [(ngModel)]="newStudent.name" name="name" />
+English
+<input [(ngModel)]="newStudent.english" name="english" />
+Math
+<input [(ngModel)]="newStudent.math" name="math" />
+Science
+<input [(ngModel)]="newStudent.science" name="science" />
+Social Studies
+<input [(ngModel)]="newStudent.socialStudies" name="socialStudies" />
+<button (click)="save()">Save</button>

@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using capstone.Data;
 
 namespace capstone.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200312015315_ChangeStudent")]
+    partial class ChangeStudent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1402,17 +1404,14 @@ namespace capstone.Data.Migrations
 
             modelBuilder.Entity("capstone.Models.Student", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<string>("Name")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("English")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Math")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Science")
@@ -1421,35 +1420,32 @@ namespace capstone.Data.Migrations
                     b.Property<string>("SocialStudies")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("Name");
 
                     b.ToTable("Students");
 
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Name = "Jon S",
                             English = "Old Fashioned Education Fairy tales",
                             Math = "Old Fashioned Education Arithmetic",
-                            Name = "Jon S",
                             Science = "Old Fashioned Education Science & Nature",
                             SocialStudies = "Old Fashioned Education Geography "
                         },
                         new
                         {
-                            Id = 2,
+                            Name = "Bobby M",
                             English = "Khan Academy Grammar",
                             Math = "Alison Core Math Skills",
-                            Name = "Bobby M",
                             Science = "Khan Academy Biology",
                             SocialStudies = "Hilsdale College Free Courses"
                         },
                         new
                         {
-                            Id = 3,
+                            Name = "Sarah B",
                             English = "Coursera English Composition I",
                             Math = "Udemy Geometry",
-                            Name = "Sarah B",
                             Science = "Academic Earth Chemistry",
                             SocialStudies = "edX Introduction to American Government"
                         });
