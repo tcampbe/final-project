@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Course } from "../course/course.component";
 
 @Component({
   selector: "app-students",
@@ -7,6 +8,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class StudentsComponent implements OnInit {
   public students: Student[];
+  public courses: Course[];
   public newStudent: Student = {
     name: "",
     english: "",

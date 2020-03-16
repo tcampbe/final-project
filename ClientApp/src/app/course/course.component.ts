@@ -21,6 +21,10 @@ export class CourseComponent implements OnInit {
       .toPromise();
   }
 
+  //async getByCategory(category) {
+  //  this.courses = await this.http.getByCategory<categoryCourses>(this.baseUrl + category)
+  //}
+
   //async save() {
   //  await this.http.post<Course[]>(this.baseUrl + 'course', this.newCourse).toPromise();
   //  this.newCourse = { Type: '', Name: '', Category: '', WebSite: '' };
@@ -29,7 +33,7 @@ export class CourseComponent implements OnInit {
   //}
 }
 
-interface Course {
+export interface Course {
   type: string;
   name: string;
   category: string;
