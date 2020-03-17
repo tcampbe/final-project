@@ -27,7 +27,9 @@
 Name
 <input [(ngModel)]="newStudent.name" name="name" />
 English
-<input [(ngModel)]="newStudent.english" name="english" />
+<select>
+  <option *ngFor="let course of courses">{{course.name}}</option>
+</select>
 Math
 <input [(ngModel)]="newStudent.math" name="math" />
 Science

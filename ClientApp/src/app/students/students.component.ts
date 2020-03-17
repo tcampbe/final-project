@@ -26,6 +26,10 @@ export class StudentsComponent implements OnInit {
     this.students = await this.http
       .get<Student[]>(this.baseUrl + "student")
       .toPromise();
+
+    // use this a model to query a category.
+    this.courses = await this.http
+      .get<Course[]>(this.baseUrl + 'course/category/?category=english').toPromise();
   }
 
   async save() {
