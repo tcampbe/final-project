@@ -1,5 +1,8 @@
-import { Component, Inject, OnInit } from "@angular/core";
+import { Component, Inject, OnInit, ViewChild } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: "app-course",
@@ -8,18 +11,31 @@ import { HttpClient } from "@angular/common/http";
 })
 export class CourseComponent implements OnInit {
   public courses: Course[];
+  displayedColumns: string[] = ["type", "name", "category", "webSite"];
+  dataSource: MatTableDataSource<Course>;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+
   //public newCourse: Course = { Type: '', Name: '', Category: '', WebSite: ''};
   //   Resource: , PreSchool: , Elementary: , MiddleSchool: , HighSchool: , HigherEducation: ,
   constructor(
     private http: HttpClient,
     @Inject("BASE_URL") private baseUrl: string
+
   ) {}
 
   async ngOnInit() {
     this.courses = await this.http
       .get<Course[]>(this.baseUrl + "course")
       .toPromise();
+    this.dataSource = new MatTableDataSource(this.courses);
+    this.dataSource.sort = this.sort;
+
   }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLocaleLowerCase();
+  }
+
 
   //async getByCategory(category) {
   //  this.courses = await this.http.getByCategory<categoryCourses>(this.baseUrl + category)

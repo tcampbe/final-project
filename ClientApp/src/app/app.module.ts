@@ -15,6 +15,10 @@ import { AuthorizeGuard } from "src/api-authorization/authorize.guard";
 import { AuthorizeInterceptor } from "src/api-authorization/authorize.interceptor";
 import { TeacherComponent } from "./teacher/teacher.component";
 import { CourseComponent } from "./course/course.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from "@angular/material/table";
+import { MatSortModule } from "@angular/material";
+
 
 @NgModule({
   declarations: [
@@ -32,6 +36,8 @@ import { CourseComponent } from "./course/course.component";
     HttpClientModule,
     FormsModule,
     ApiAuthorizationModule,
+    MatSortModule,
+    MatTableModule,
     RouterModule.forRoot([
       { path: "", component: HomeComponent, pathMatch: "full" },
       { path: "counter", component: CounterComponent },
@@ -55,7 +61,8 @@ import { CourseComponent } from "./course/course.component";
         component: CourseComponent,
         canActivate: [AuthorizeGuard]
       }
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
