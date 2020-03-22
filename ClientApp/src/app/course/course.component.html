@@ -8,19 +8,19 @@
 
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
   <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>TYPE</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header width="15%">TYPE</th>
 
     <th mat-cell *matCellDef="let course">{{ course.type }}</th>
   </ng-container>
 
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header width="30%">NAME</th>
 
     <th mat-cell *matCellDef="let course">{{ course.name }}</th>
   </ng-container>
 
   <ng-container matColumnDef="category">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>CATEGORY</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header width="15%">CATEGORY</th>
 
     <th mat-cell *matCellDef="let course">{{ course.category }}</th>
   </ng-container>
@@ -34,3 +34,4 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+
