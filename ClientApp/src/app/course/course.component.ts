@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit, ViewChild } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort, MatSortModule } from '@angular/material/sort';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatPaginator } from "@angular/material/paginator";
+import { MatSort, MatSortModule } from "@angular/material/sort";
+import { MatTableDataSource, MatTableModule } from "@angular/material/table";
 
 @Component({
   selector: "app-course",
@@ -20,7 +20,6 @@ export class CourseComponent implements OnInit {
   constructor(
     private http: HttpClient,
     @Inject("BASE_URL") private baseUrl: string
-
   ) {}
 
   async ngOnInit() {
@@ -29,13 +28,11 @@ export class CourseComponent implements OnInit {
       .toPromise();
     this.dataSource = new MatTableDataSource(this.courses);
     this.dataSource.sort = this.sort;
-
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLocaleLowerCase();
   }
-
 
   //async getByCategory(category) {
   //  this.courses = await this.http.getByCategory<categoryCourses>(this.baseUrl + category)

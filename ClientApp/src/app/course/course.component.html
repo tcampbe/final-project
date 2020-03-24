@@ -2,9 +2,11 @@
 
 <p *ngIf="!courses"><em>Loading...</em></p>
 
-<input matInput
-       (keyup)="applyFilter($event.target.value)"
-       placeholder="Filter" />
+<input
+  matInput
+  (keyup)="applyFilter($event.target.value)"
+  placeholder="Filter"
+/>
 
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
   <ng-container matColumnDef="type">
@@ -20,7 +22,9 @@
   </ng-container>
 
   <ng-container matColumnDef="category">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header width="15%">CATEGORY</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header width="15%">
+      CATEGORY
+    </th>
 
     <th mat-cell *matCellDef="let course">{{ course.category }}</th>
   </ng-container>
@@ -34,4 +38,3 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
-
