@@ -28,7 +28,7 @@ import { MatSortModule } from "@angular/material";
     FetchDataComponent,
     StudentsComponent,
     TeacherComponent,
-    CourseComponent
+    CourseComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "ng-cli-universal" }),
@@ -43,29 +43,29 @@ import { MatSortModule } from "@angular/material";
       {
         path: "fetch-data",
         component: FetchDataComponent,
-        canActivate: [AuthorizeGuard]
+        canActivate: [AuthorizeGuard],
       },
       {
         path: "students",
         component: StudentsComponent,
-        canActivate: [AuthorizeGuard]
+        canActivate: [AuthorizeGuard],
       },
       {
         path: "teachers",
         component: TeacherComponent,
-        canActivate: [AuthorizeGuard]
+        canActivate: [AuthorizeGuard],
       },
       {
         path: "courses",
         component: CourseComponent,
-        canActivate: [AuthorizeGuard]
-      }
+        canActivate: [AuthorizeGuard],
+      },
     ]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

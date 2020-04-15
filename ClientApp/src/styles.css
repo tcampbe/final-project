@@ -15,11 +15,20 @@ code {
   border-color: #1861ac;
 }
 
-html, body { height: 100%; }
+html,
+body {
+  height: 100%;
+}
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: linear-gradient( to bottom, #FFFAD1, #FFFAD1 99%, #D1D8FF 1%, #D1D8FF );
+  background: linear-gradient(
+    to bottom,
+    #fffad1,
+    #fffad1 99%,
+    #d1d8ff 1%,
+    #d1d8ff
+  );
   /* The rectangle in which to repeat. 
    It can be fully wide in this case */
   background-size: 100% 59px;

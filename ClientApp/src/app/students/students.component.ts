@@ -4,7 +4,7 @@ import { Course } from "../course/course.component";
 
 @Component({
   selector: "app-students",
-  templateUrl: "./students.component.html"
+  templateUrl: "./students.component.html",
 })
 export class StudentsComponent implements OnInit {
   public students: Student[];
@@ -14,7 +14,7 @@ export class StudentsComponent implements OnInit {
     english: "",
     math: "",
     science: "",
-    socialStudies: ""
+    socialStudies: "",
   };
 
   constructor(
