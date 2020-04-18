@@ -10,31 +10,44 @@
 
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
   <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header width="15%">TYPE</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header width="15%" class="font-weight-bold">TYPE</th>
 
-    <th mat-cell *matCellDef="let course">{{ course.type }}</th>
+    <th mat-cell *matCellDef="let course" class="mat-body">{{ course.type }}</th>
   </ng-container>
 
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header width="30%">NAME</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header width="30%" class="font-weight-bold">NAME</th>
 
-    <th mat-cell *matCellDef="let course">{{ course.name }}</th>
+    <th mat-cell *matCellDef="let course" class="mat-body">{{ course.name }}</th>
   </ng-container>
 
   <ng-container matColumnDef="category">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header width="15%">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header width="15%" class="font-weight-bold">
       CATEGORY
     </th>
 
-    <th mat-cell *matCellDef="let course">{{ course.category }}</th>
+    <th mat-cell *matCellDef="let course" class="mat-body">{{ course.category }}</th>
   </ng-container>
 
   <ng-container matColumnDef="webSite">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>WEBSITE</th>
+    <th mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        class="font-weight-bold">WEBSITE</th>
 
-    <th mat-cell *matCellDef="let course">{{ course.webSite }}</th>
+    <th mat-cell
+        *matCellDef="let course"
+        class="mat-body"
+        ><a href="{{course.webSite}}" target="_blank">
+          {{ course.webSite }}
+          </a>
+    </th>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  <tr mat-header-row
+      *matHeaderRowDef="displayedColumns"
+      ></tr>
+  <tr mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      ></tr>
 </table>
