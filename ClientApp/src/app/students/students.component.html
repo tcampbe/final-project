@@ -1,12 +1,26 @@
-<h1 id="tableLabel">Students</h1>
+<h1 id="tableLabel">Student Schedules</h1>
 
 <p *ngIf="!students"><em>Loading...</em></p>
 
-<table
-  class="table table-striped"
-  aria-labelledby="tableLabel"
-  *ngIf="students"
->
+Name
+<input [(ngModel)]="newStudent.name" name="name" />
+<br />
+<br />
+English
+<input [(ngModel)]="newStudent.english" name="english" />
+Math
+<input [(ngModel)]="newStudent.math" name="math" />
+Science
+<input [(ngModel)]="newStudent.science" name="science" />
+Social Studies
+<input [(ngModel)]="newStudent.socialStudies" name="socialStudies" />
+<br />
+<br />
+<button (click)="save()">Save</button>
+
+<table class="table table-striped"
+       aria-labelledby="tableLabel"
+       *ngIf="students">
   <thead>
     <tr>
       <th>Name</th>
@@ -26,18 +40,4 @@
     </tr>
   </tbody>
 </table>
-Name
-<input [(ngModel)]="newStudent.name" name="name" />
-<br />
-<br />
-English
-<input [(ngModel)]="newStudent.english" name="english" />
-Math
-<input [(ngModel)]="newStudent.math" name="math" />
-Science
-<input [(ngModel)]="newStudent.science" name="science" />
-Social Studies
-<input [(ngModel)]="newStudent.socialStudies" name="socialStudies" />
-<br />
-<br />
-<button (click)="save()">Save</button>
+

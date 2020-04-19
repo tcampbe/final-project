@@ -1,5 +1,8 @@
-import { Component, Inject, OnInit } from "@angular/core";
+import { Component, Inject, OnInit, ViewChild } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatSort, MatSortModule } from "@angular/material/sort";
+import { MatTableDataSource, MatTableModule } from "@angular/material/table";
 import { Course } from "../course/course.component";
 
 @Component({
@@ -9,6 +12,9 @@ import { Course } from "../course/course.component";
 export class StudentsComponent implements OnInit {
   public students: Student[];
   public courses: Course[];
+  dataSource: MatTableDataSource<Student>;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+
   public newStudent: Student = {
     name: "",
     english: "",
@@ -26,7 +32,15 @@ export class StudentsComponent implements OnInit {
     this.students = await this.http
       .get<Student[]>(this.baseUrl + "student")
       .toPromise();
+    this.dataSource = new MatTableDataSource(this.students);
+    this.dataSource.sort = this.sort;
+
   }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLocaleLowerCase();
+  }
+
 
   async save() {
     await this.http
