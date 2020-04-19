@@ -13,9 +13,13 @@
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
   <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header width="15%" class="font-weight-bold">TYPE</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header width="15%"
+        class="font-weight-bold">
+        TYPE </th>
 
-    <th mat-cell *matCellDef="let course" class="mat-body">{{ course.type }}</th>
+    <th mat-cell *matCellDef="let course"
+        class="mat-body">
+        {{ course.type }}</th>
   </ng-container>
 
   <ng-container matColumnDef="name">

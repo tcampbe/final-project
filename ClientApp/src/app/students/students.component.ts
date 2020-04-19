@@ -12,6 +12,7 @@ import { Course } from "../course/course.component";
 export class StudentsComponent implements OnInit {
   public students: Student[];
   public courses: Course[];
+  displayedColumns: string[] = ["name", "english", "math", "science", "socialStudies"];
   dataSource: MatTableDataSource<Student>;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 

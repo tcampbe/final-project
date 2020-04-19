@@ -2,6 +2,7 @@
 
 <p *ngIf="!students"><em>Loading...</em></p>
 
+<p>Use a name that is easy to remember, so you can search for it later!</p>
 Name
 <input [(ngModel)]="newStudent.name" name="name" />
 <br />
@@ -18,7 +19,85 @@ Social Studies
 <br />
 <button (click)="save()">Save</button>
 
-<table class="table table-striped"
+<br />
+<br />
+
+<input matInput
+       (keyup)="applyFilter($event.target.value)"
+       placeholder="Search" />
+
+<table mat-table [dataSource]="dataSource"
+       matSort class="mat-elevation-z8"
+       style="background-color:lemonchiffon">
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header width="8%"
+        class="font-weight-bold">
+      NAME
+    </th>
+
+    <th mat-cell *matCellDef="let student"
+        class="mat-body">
+      {{ student.name }}
+    </th>
+  </ng-container>
+
+  <ng-container matColumnDef="english">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header width="23%"
+        class="font-weight-bold">
+      ENGLISH
+    </th>
+
+    <th mat-cell *matCellDef="let student"
+        class="mat-body">
+      {{ student.english }}
+    </th>
+  </ng-container>
+
+  <ng-container matColumnDef="math">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header width="23%"
+        class="font-weight-bold">
+      MATH
+    </th>
+
+    <th mat-cell *matCellDef="let student"
+        class="mat-body">
+      {{ student.math }}
+    </th>
+  </ng-container>
+
+  <ng-container matColumnDef="science">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header width="23%"
+        class="font-weight-bold">
+      SCIENCE
+    </th>
+
+    <th mat-cell *matCellDef="let student"
+        class="mat-body">
+      {{ student.science }}
+    </th>
+  </ng-container>
+
+
+  <ng-container matColumnDef="socialStudies">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header width="23%"
+        class="font-weight-bold">
+      SOCIAL STUDIES
+    </th>
+
+    <th mat-cell *matCellDef="let student"
+        class="mat-body">
+      {{ student.socialStudies }}
+    </th>
+  </ng-container>
+
+  <tr mat-header-row
+      *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row
+      *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<!--<table class="table table-striped"
        aria-labelledby="tableLabel"
        *ngIf="students">
   <thead>
@@ -39,5 +118,4 @@ Social Studies
       <td>{{ s.socialStudies }}</td>
     </tr>
   </tbody>
-</table>
-
+</table>-->
